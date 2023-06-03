@@ -1,0 +1,17 @@
+/*
+  This file is used to store the editor's settings - NOT USED BY THE PROJECT ITSELF -
+  Editor of choice: VSCode
+*/
+{
+  "workbench.colorTheme": "Visual Studio 2019 Dark",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll": true
+  },
+  "eslint.alwaysShowStatus": true
+}
