@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.rnmobilegenerator"
+    namespace "com.RNBoilerplate"
     defaultConfig {
-        applicationId "com.rnmobilegenerator"
+        applicationId "com.RNBoilerplate"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
