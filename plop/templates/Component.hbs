@@ -1,0 +1,44 @@
+{{#if (eq fileType 'TypeScript')}}
+import * as React from 'react';
+import {  StyleSheet {{#if RNComponents}}, {{RNComponents}}{{/if}} } from 'react-native';
+{{#if CommonComponent}}
+{{#each CommonComponent}}
+import {{this}} from '../Common/{{this}}';
+{{/each}}
+{{/if}}
+
+
+interface {{pascalCase component}}Props {}
+
+const {{pascalCase component}} = ({}: {{pascalCase component}}Props) => {
+  return (
+    <View style={styles.container}>
+    {{#if structure}}
+      {{ destructure structure }}
+    {{else}}
+      <Text>Hello, {{component}}!</Text>
+    {{/if}}
+  </View>
+  );
+};
+
+export default {{pascalCase component}};
+
+const styles = StyleSheet.create({
+  container: {}
+});
+
+{{else}}
+import React from 'react';
+import { View, Text } from 'react-native';
+
+const {{pascalCase component}} = () => {
+  return (
+    <View>
+      <Text>React Native JavaScript Component</Text>
+    </View>
+  );
+};
+
+export default {{pascalCase component}};
+{{/if}}

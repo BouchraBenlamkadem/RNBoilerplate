@@ -1,0 +1,10 @@
+import React from 'react';
+import { render } from '@testing-library/react-native';
+import {{pascalCase component}} from 'src/components/{{module}}/{{pascalCase component}}';
+
+test('{{pascalCase component}} renders correctly', () => {
+  const { getByText } = render(<{{pascalCase component}} />);
+  const componentText = getByText('React Native Component');
+
+  expect(componentText).toBeTruthy();
+});
