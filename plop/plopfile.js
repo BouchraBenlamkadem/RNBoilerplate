@@ -9,8 +9,8 @@ Handlebars.registerHelper(helpers);
 // Generators
 module.exports = function (plop) {
   for (const helper in customHelpers) {
-    console.log("hhhhhhhhh", helper);
-    plop.setHelper(helper, helpers[helper]);
+    console.log("hhhhhhhhh", typeof helper, helper, customHelpers[helper]);
+    plop.setHelper(helper, customHelpers[helper]);
   }
   plop.setGenerator("component", component);
 };

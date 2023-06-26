@@ -8,11 +8,13 @@ import {{this}} from '../Common/{{this}}';
 {{/if}}
 
 
-interface {{pascalCase component}}Props {}
+interface {{pascalCase component}}Props {
+  style: any
+}
 
-const {{pascalCase component}} = ({}: {{pascalCase component}}Props) => {
+const {{pascalCase component}} = ({style}: {{pascalCase component}}Props) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container,style]}>
     {{#if structure}}
       {{ destructure structure }}
     {{else}}
