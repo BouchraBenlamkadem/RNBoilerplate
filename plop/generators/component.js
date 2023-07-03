@@ -25,7 +25,7 @@ module.exports = {
       type: "checkbox",
       name: "RNComponents",
       message: "Select React Native components to import:",
-      choices: ["View", "Text", "Button", "Image", "TextInput"]
+      choices: ["View", "Text", "Button", "Image", "TextInput", "TouchableOpacity"]
     },
     {
       type: "checkbox",
@@ -40,10 +40,85 @@ module.exports = {
         return componentNames;
       }
     },
+    // {
+    //   type: "input",
+    //   name: "structure",
+    //   message: "Enter the component structure (e.g., View>ScrollView>View,Text,Image):"
+    // },
     {
       type: "input",
-      name: "structure",
-      message: "Enter the component structure (e.g., View>ScrollView>View,Text,Image):"
+      name: "root",
+      message: "Enter the root component"
+    },
+    {
+      type: "confirm",
+      name: "addStyle",
+      message: "Do you want to add styles to the component?",
+      default: false
+    },
+    {
+      type: "input",
+      name: "margin",
+      message: "Enter the margin value:",
+      when: (answers) => answers.addStyle
+    },
+    {
+      type: "input",
+      name: "padding",
+      message: "Enter the padding value:",
+      when: (answers) => answers.addStyle
+    },
+    {
+      type: "input",
+      name: "props",
+      message: "Enter the props to add :"
+    },
+    {
+      type: "confirm",
+      name: "setContainerAsRow",
+      message: "Set container as row?",
+      when: (answers) => ["View", "TouchableOpacity"].includes(answers.root)
+    },
+    {
+      type: "recursive",
+      message: "Add a child ?",
+      name: "children",
+      prompts: [
+        {
+          type: "input",
+          name: "name",
+          message: "Enter the component name"
+        },
+        {
+          type: "confirm",
+          name: "addStyle",
+          message: "Do you want to add styles to the component?",
+          default: false
+        },
+        {
+          type: "input",
+          name: "margin",
+          message: "Enter the margin value:",
+          when: (answers) => answers.addStyle
+        },
+        {
+          type: "input",
+          name: "padding",
+          message: "Enter the padding value:",
+          when: (answers) => answers.addStyle
+        },
+        {
+          type: "input",
+          name: "props",
+          message: "Enter the props to add :"
+        },
+        {
+          type: "confirm",
+          name: "setContainerAsRow",
+          message: "Set container as row?",
+          when: (answers) => ["View", "TouchableOpacity"].includes(answers.name)
+        }
+      ]
     }
   ],
   actions: function (data) {

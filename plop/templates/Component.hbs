@@ -9,18 +9,16 @@ import {{this}} from '../Common/{{this}}';
 
 
 interface {{pascalCase component}}Props {
-  style: any
+  style?: any
 }
 
 const {{pascalCase component}} = ({style}: {{pascalCase component}}Props) => {
   return (
-    <View style={[styles.container,style]}>
-    {{#if structure}}
-      {{ destructure structure }}
-    {{else}}
-      <Text>Hello, {{component}}!</Text>
-    {{/if}}
-  </View>
+    <{{pascalCase root}} {{#if addStyle}}style={[styles.container,style]}{{else}}style={style}{{/if}} {{{props}}} {{#if (eq (length children) 0)}}/{{/if}}>
+      {{#each children}}
+      <{{pascalCase this.name}} {{{this.props}}} />
+      {{/each}}
+    {{#unless (eq (length children) 0)}}</{{pascalCase root}}>{{/unless}}  
   );
 };
 
